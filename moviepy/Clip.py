@@ -55,6 +55,7 @@ class Clip:
         self.memoized_t = None
         self.memoize_frame  = None
         self.iterframe_callback = None
+        self.write_progress_bar = True
 
 
 
@@ -502,7 +503,7 @@ class Clip:
                     self.iterframe_callback(n, frame=obj, nframes=total)
 
         
-        if progress_bar:
+        if progress_bar and self.write_progress_bar:
             
             return tqdm(callback_generator(generator(), total=nframes), total=nframes)
 

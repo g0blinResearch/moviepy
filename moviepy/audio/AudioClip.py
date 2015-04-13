@@ -46,6 +46,7 @@ class AudioClip(Clip):
         Clip.__init__(self)
 
         self.iterchunk_callback = None
+        self.write_progress_bar = True
 
         if make_frame is not None:
             self.make_frame = make_frame
@@ -99,7 +100,7 @@ class AudioClip(Clip):
 
                     self.iterchunk_callback(n, frame=obj, nframes=total)
 
-        if progress_bar:
+        if progress_bar and self.write_progress_bar:
 
             return tqdm(callback_generator(generator(), total=nchunks), total=nchunks)
 
