@@ -286,7 +286,7 @@ class CompositeAudioClip(AudioClip):
 
     def __init__(self, clips):
 
-        Clip.__init__(self)
+        AudioClip.__init__(self)
         self.clips = clips
         
         ends = [c.end for c in self.clips]
